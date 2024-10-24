@@ -31,17 +31,17 @@ function draw(e) {
 
     if (tool === 'line') {
         ctx.beginPath();
-        ctx.moveTo(startX, startY);
+        ctx.moveTo(starX, startY);
         ctx.lineTo(currentX, currentY);
         ctx.stroke();
     } else if (tool === 'rectangle') {
         const width = currentX - startX;
         const height = currentY - startY;
-        ctx.strokeRect(startX, startY, width, height);
+        ctx.strokeRect(starX, starY, width, height);
     } else if (tool === 'circle') {
-        const radius = Math.sqrt(Math.pow(currentX - startX, 2) + Math.pow(currentY - startY, 2));
+        const radius = Math.sqrt(Math.pow(currentX - starX, 2) + Math.pow(currentY - startY, 2));
         ctx.beginPath();
-        ctx.arc(startX, startY, radius, 0, Math.PI * 2);
+        ctx.arc(starX, startY, radius, 0, Math.PI * 2);
         ctx.stroke();
     };
 };
