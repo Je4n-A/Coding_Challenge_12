@@ -5,7 +5,12 @@ const ctx = canvas.getContext('2d');
 // Variables to track the drawing state
 let drawing = false;
 let tool = 'line'; // Default tool
+let color = '#000000'; // Color 
 let starX, startY;
+
+// Get the color input and clear button elements
+const colorPicker = document.getElementById('colorPicker');
+const clearButton = document.getElementById('clearCanvas');
 
 // Function to start drawing
 function startDrawing(e) {
@@ -47,8 +52,21 @@ function stopDrawing() {
     ctx.closePath();
 };
 
+// Function to clear the canvas
+function clearCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+};
+
 // Add event listeners for mouse events
 canvas.addEventListener('mousedown', startDrawing);
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', stopDrawing);
 canvas.addEventListener('mouseout', stopDrawing);
+
+// Add event listener for color input
+colorPicker.addEventListener('input', (e) => {
+    color = e.target.value;
+});
+
+// Add event listener for clear button
+clearButton.addEventListener('click', clearCanvas);
