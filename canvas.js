@@ -15,11 +15,11 @@ const clearButton = document.getElementById('clearCanvas');
 // Function to start drawing
 function startDrawing(e) {
     drawing = true;
-    startX = e.offsetX;
-    startX = e.offsetY;
+    starX = e.offsetX;
+    startY = e.offsetY;
     ctx.beginPath();
     ctx.moveTo(e.offsetX, e.offsetY);
-}
+};
 
 // Function to draw on the canvas
 function draw(e) {
